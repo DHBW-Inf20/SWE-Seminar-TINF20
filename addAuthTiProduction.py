@@ -58,6 +58,7 @@ def extractAuthTitle(paperFileName):
     pos = data.find(r"\title")
     if pos > -1:
         data = data[pos + len(r"\title"):].strip()
+        
         if data[0] == "[":
             titleList = nestedExpr("[", "]").parseString(data).asList()[0]
             title = joinNestedList(titleList, "{", "}")
