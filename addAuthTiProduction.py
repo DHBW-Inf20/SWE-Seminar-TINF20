@@ -19,6 +19,8 @@ def lookup_workshop(workshop_id):
         "B3": "Word-Papers",
         "B33": "Workshop zur Demonstration der Metadatenextraktion",
         "C1": "Doktorandensymposium",
+        "D1": "Kongresstag 1",
+        "D2": "Kongresstag 2"
     }
     return workshops[workshop_id]
 
