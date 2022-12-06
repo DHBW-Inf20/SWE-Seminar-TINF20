@@ -1,0 +1,45 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = de_DE
+
+\include{einstellungen}
+\include{konstanten}
+
+\begin{document}
+%%% Mehrere Autoren werden durch \and voneinander getrennt.
+%%% Die Fußnote enthält die Adresse sowie eine E-Mail-Adresse.
+%%% Das optionale Argument (sofern angegeben) wird für die Kopfzeile verwendet.
+\title[Intelligente Werkzeuge SWE]{Einsatz intelligenter Werkzeuge zur Softwareentwicklung}
+%%%\subtitle{Untertitel / Subtitle} % falls benötigt
+\author[Jonathan Schwab \and Felix Wochele \and Jonas Weis]
+{
+	\vornameEins \nachnameEins\footnote{\university, \abteilung, \strasse, \ort, \standortLand, \email{\mailEins}} \and
+	\vornameZwei \nachnameZwei\footnote{\university, \abteilung, \strasse, \ort, \standortLand, \email{\mailZwei}} \and
+	\vornameDrei \nachnameDrei\footnote{\university, \abteilung, \strasse, \ort, \standortLand, \email{\mailDrei}}
+}
+\startpage{1} % Beginn der Seitenzählung für diesen Beitrag
+\editor{\herausgeber}    % Namen der Herausgeber
+\booktitle{\konferenz} % Name des Tagungsband; optional Kurztitel
+\yearofpublication{2023}
+\maketitle
+
+\begin{abstract}
+Zahlreiche moderne Werkzeuge zur Unterstützung der Softwareentwicklung sind mittlerweile nutzbar. Diese Arbeit schafft einen Überblick über verschiedene Einsatzbereiche. Behandelt werden die Bereiche Codevervollständigung, Codegenerierung, Codeanalyse, Refactoring, Dokumentation und Kollaboration. Neben der Vorstellung grundlegender Konzepte und Umsetzungen, steht dabei die Analyse des Nutzens und der möglichen Risiken oder Grenzen im Vordergrund. Außerdem gibt die Vorstellung einer oder mehrerer Werkzeuge je Kategorie die Möglichkeit zum Transfer in die Praxis. Neben der Funktionalität wurde bei der Auswahl vor allem auf die Unterstützung möglichst vieler Programmiersprachen geachtet. 
+\end{abstract}
+
+\begin{keywords}
+Künstliche Intelligenz \and Softwareentwicklung \and Intelligente Werkzeuge \and Codevervollständigung \and Refactoring \and Codegeneration \and Codeanalyse \and Dokumentation \and Kollaboration
+\end{keywords}
+
+\renewcommand{\lstlistingname}{Quellcode} % Listing->Code
+\let\clearpage\relax
+\include{content/einleitung}
+\include{content/codecompletion}
+\include{content/codegeneration}
+\include{content/codeanalyse}
+\include{content/refactoring}
+\include{content/documentation}
+\include{content/collaboration}
+\include{content/schluss}
+
+\printbibliography
+\end{document}

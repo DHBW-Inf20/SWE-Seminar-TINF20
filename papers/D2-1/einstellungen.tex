@@ -1,0 +1,93 @@
+%% Dies gibt Warnungen aus, sollten veraltete LaTeX-Befehle verwendet werden
+\RequirePackage[l2tabu, orthodox]{nag}
+
+\documentclass[utf8,biblatex]{lni}
+\addbibresource{bibliographieJonas.bib}
+\addbibresource{bibliographieJona.bib}
+\addbibresource{bibliographieFelix.bib}
+
+%% Schöne Tabellen mittels \toprule, \midrule, \bottomrule
+\usepackage{booktabs}
+
+%% Zu Demonstrationszwecken
+\usepackage[math]{blindtext}
+\usepackage{mwe}
+
+%% BibLaTeX-Sonderkonfiguration,
+%% falls man schnell eine existierende Bibliographie wiederverwenden will, aber nicht die .bib-Datei händisch anpassen möchte.
+%% Bitte \iffalse und \fi entfernen, dann ist diese Konfiguration aktiviert.
+
+\iffalse
+\AtEveryBibitem{%
+	\ifentrytype{article}{%
+	}{%
+		\clearfield{doi}%
+		\clearfield{issn}%
+		\clearfield{url}%
+		\clearfield{urldate}%
+	}%
+	\ifentrytype{inproceedings}{%
+	}{%
+		\clearfield{doi}%
+		\clearfield{issn}%
+		\clearfield{url}%
+		\clearfield{urldate}%
+	}%
+}
+\fi
+
+
+
+%%%%%%%%%% Code %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{bluekeywords}{rgb}{0,0,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.64,0.08,0.08}
+\definecolor{xmlcomments}{rgb}{0.5,0.5,0.5}
+\definecolor{types}{rgb}{0.17,0.57,0.68}
+\definecolor{cloudwhite}{rgb}{0.9412, 0.9608, 0.8471} 
+
+\definecolor{red}{rgb}{0.6,0,0} 
+\definecolor{blue}{rgb}{0,0,0.6}
+\definecolor{green}{rgb}{0,0.8,0}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+\definecolor{lightgray}{RGB}{245,245,245}
+
+\usepackage{caption}
+\usepackage{placeins}
+\usepackage{listings}
+
+
+\usepackage{listings}
+\lstset{language=C,
+	basicstyle=\footnotesize\ttfamily,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	tabsize=2,
+	extendedchars=true,
+	breaklines=true,
+	frame=b,
+	stringstyle=\color{blue}\ttfamily,
+	showspaces=false,
+	showtabs=false,
+	xleftmargin=17pt,
+	framexleftmargin=17pt,
+	framexrightmargin=5pt,
+	framexbottommargin=4pt,
+	commentstyle=\color{green},
+	morecomment=[l]{//}, %use comment-line-style!
+	morecomment=[s]{/*}{*/}, %for multiline comments
+	showstringspaces=false,
+	morekeywords={partial, var, value, get, set, where, from, select, yield},
+	keywordstyle=\color{bluekeywords},
+	stringstyle=\color{redstrings},
+	basicstyle=\ttfamily\small,
+	backgroundcolor=\color{cloudwhite}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[acronym]{glossaries}
