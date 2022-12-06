@@ -444,9 +444,8 @@
 \phantomsection
 \pdfbookmark[part]{Vorwort}{Vorwort}
 %Use "plain" instead of "empty" if you want to add page numbers -- currently does not work as they seem out of the margins
-\includepdf[pagecommand={\thispagestyle{empty}},pages=3-3,noautoscale]{LNI-Startseiten.pdf}
+\includepdf[pagecommand={\thispagestyle{empty}},pages=3-4,noautoscale]{LNI-Startseiten.pdf}
 
-% END: LNI-Startseiten.pdf
 
 
 \setboolean{@twoside}{true}
@@ -476,10 +475,17 @@
 %\addpart{Hauptvorträge}
 
 \addpart{Workshops}
-\addchap{D1}
+%
+%D1
+%
+\addchap{Kongresstag 1}
 \addpaper{D1-2}{Adrian Liehner \and Jülf Freudenberger}{Software Reuse}
-\addchap{D2}
-\addpaper{D2-1}{vn1 nachnameEins \and vornameZwei nachnameZwei \and vornameDrei nachnameDrei}{kurztitel}
+%
+%D2
+%
+\addchap{Kongresstag 2}
+\addpaper{D2-1}{Jonathan Schwab \and Felix Wochele \and Jonas Weis}{Intelligente Werkzeuge SWE}
+\addpaper{D2-5}{Robin Epple \and Timo Vollert}{TITLE}
 %add_paper_lines_here
 
 \pagestyle{plain}
