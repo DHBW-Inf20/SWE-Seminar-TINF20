@@ -1,0 +1,59 @@
+\section{Einleitung}
+\label{ch:introduction}
+Bereits seit den frühen 1990er-Jahren werden Konzepte für die Aufteilung von Anwendungen in einzelne Dienste (engl. \textit{Services}) angewendet, um Verantwortlichkeiten innerhalb einer Anwendung entkoppeln und somit verteilen zu können. Zunehmend wurden diese Konzepte anschließend auch in Unternehmen für die Entwicklung umfangreicher Systeme übernommen. Große Systeme konnten somit in unterschiedliche getrennte Dienste aufgeteilt und auf mehrere Rechner verteilt werden. Dies ermöglichte die Entwicklung von Systemen, welche die Ressourcenkapazität eines einzigen Rechners überstiegen. Die isolierten Services waren zudem überschaubarer und konnten leichter gewartet werden. Ebenfalls konnten diese unabhängig von dem restlichen System weiterentwickelt werden.\\
+Neben den Möglichkeiten bei der Entwicklung entstanden ebenfalls weitere Möglichkeiten für die Auslieferung und insbesondere für Aktualisierung und Skalierung von Systemen.
+
+
+\subsection{Motivation}
+\label{sec:motivation}
+Dieses Paper ist im Rahmen der Vorlesung \textit{Advanced Software-Engineering} an der Dualen Hochschule Baden-Württemberg Stuttgart, Campus Horb entstanden. Im Rahmen dieser Arbeit wird untersucht, welche Auswirkungen durch die Verwendung einer serviceorientierten Architektur (SOA) hinsichtlich des Entwicklungs- und Auslieferungsprozesses von Software resultieren.\\
+Dabei wird zunächst der Begriff der SOA geklärt und definiert. Anschließend wird die geschichtliche Entwicklung bezüglich der Verwendung unterschiedlicher Softwarearchitekturen genauer untersucht. Zusätzlich wird beleuchtet, wie eine SOA realisiert werden kann. Im Anschluss daran werden die Auswirkungen der Architektur auf den Entwicklungs- und Auslieferungsprozess dargestellt. 
+
+\subsection{Einführung und Definition}
+\label{sec:introduction}
+Für den Begriff der SOA existiert keine einheitliche, allgemein anerkannte Definition. Es handelt sich hierbei um keine konkrete Technologie, sondern um ein Konzept, welches über viele Jahre gewachsen ist und weiterentwickelt wurde. Da SOA auf unterschiedliche Bereiche angewendet werden kann, existieren viele unterschiedliche Definitionen, welche jeweils verschiedene Aspekte des Konzepts beleuchten.\\
+Im Folgenden soll nun zunächst der Begriff des Services eingeführt werden. Anschließend sollen unterschiedliche Definitionen von SOA untersucht werden. Schließlich soll eine eigene Definition formuliert werden, die im Rahmen dieser Arbeit verwendet wird.
+
+Ein Service ist ein eigenständiges Softwaremodul, welches zumeist die Funktionalität oder den Ablauf eines konkreten Geschäftsprozesses oder Vorgangs abbildet \cite{Rausch.26.12.2005}. Dabei kapselt ein Service meist mehrere zusammengehörige, feingranulare Komponenten und stellt eine präzise Schnittstelle für den Zugriff auf die Funktionalität bereit.
+Wichtig ist hierbei, dass der Service eine geschlossene Komponente darstellt, welche keine weiteren Abhängigkeiten nach außen besitzt \cite{SANDERS.2008}. Dies gilt sowohl gegenüber verwendeten Bibliotheken innerhalb des Services als auch gegenüber anderen Services in einem System.\\
+Darüber hinaus sollte ein Service eine positionsunabhängige Adressierungsmöglichkeit anbieten, über welche die Schnittstelle nach außen nutzbar gemacht wird. Üblicherweise werden hierfür Netzwerkprotokolle verwendet. Die positionsunabhängige Kommunikation über standardisierte Netzwerkprotokolle ermöglicht die lose Kopplung mit anderen Services oder Konsumenten \cite{ANG.2006}. Diese können also über die Schnittstelle die Funktionalität des Services nutzen, ohne dessen Position oder den verwendeten Technologiestack kennen zu müssen. Somit kann aus mehreren lose gekoppelten Services ein modulares Gesamtsystem zusammengesetzt werden, welches sehr einfach verteilt und skaliert werden kann \cite{SANDERS.2008}. 
+
+Eine Architektur für solche Systeme, welche auf einzelnen isolierten und verteilbaren Services basieren, wird \textit{serviceorientierte Architektur} genannt \cite{SANDERS.2008}. Dabei existieren in der Literatur unterschiedliche Ansichten, wie genau diese definiert wird. Es existieren viele verschiedene Definitionen aus unterschiedlichen Perspektiven. Diese beleuchten unterschiedliche Aspekte und sind somit zwar korrekt, aber selten einheitlich oder vollständig.\\ 
+In einem Buch von Thomas Erl \cite{ERL.2009} wird SOA als offene, agile und zusammensetzbare Architektur, bestehend aus autonomen Web-Services beschrieben. Die Services sollen dabei eigenständig, wiederverwendbar und herstellerübergreifend interoperabel sein.\\
+In einem Artikel aus dem \textit{CrossTalk} Magazin der US Air Force \cite{G.A.LEWIS.2007} hingegen wird SOA nicht als Architektur, sondern aus architektonisches Muster beschrieben. Aus diesem Architekturmuster können laut den Autoren unbegrenzt viele konkrete Architekturen abgeleitet werden.
+In einem weiteren Buch von Erl \cite{ERL.2009b} wird SOA als Erweiterung der Objektorientierung beschrieben. Es werden zentrale Konzepte der Objektorientierung, wie beispielsweise Abstraktion, Kapselung und Wiederverwendbarkeit angewendet und durch stärkere Kapselung und unabhängige Kommunikation über Netzwerkprotokolle erweitert. Aus Software, bestehend aus interagierenden Objekten, wird Software aus interagierenden Services. Diese können außerdem mit heterogenen Technologien umgesetzt werden und über Systemgrenzen hinweg interagieren.
+Arnon Rotem-Gal-Oz beschreibt SOA in seinem Buch \cite{ROTEMGALOZ.2012} als Architekturstil für die Erstellung interaktiver Systeme, bestehend aus lose gekoppelten, grob-granularen und autonomen Services. Jeder Service definiert bestimmte Funktionalität beziehungsweise ein bestimmtes Verhalten und spezifiziert den Zugriff darauf über eine Schnittstelle, den sogenannten \textit{Kontrakt}. Dieser Kontrakt wird über einen adressierbaren Endpunkt nach außen freigegeben. Er beinhaltet Nachrichten zur Benutzung der Funktionalität/des Verhaltens von externen Konsumenten.\\
+Die Granularität der Services ist dabei mit Bedacht zu wählen. Sind die Services zu feingranular, wird das System extrem komplex und es muss mit einem riesigem Overhead umgegangen werden. Wählt man eine zu grobe Granularität, handelt es sich bei dem System mehr um ein Konglomerat mehrerer Monolithen \cite{STORZ.2021}.\\
+Folgende Definition soll die zentralen Punkte einer SOA zusammenfassen und wird im Rahmen dieser Arbeit verwendet.\\
+\par
+\begingroup
+\leftskip4em
+\rightskip\leftskip
+    \textbf{Definition:} SOA stellt ein technologieunabhängiges Architekturmuster für verteilbare Systeme, bestehend aus homogenen oder heterogenen, lose gekoppelten und über Nachrichten interagierenden Services dar. Ein Service stellt dabei eine autonome Softwarekomponente dar, die konkrete Funktionalität oder einen Geschäftsprozess kapselt und über eine klar definierte Schnittstelle positionsunabhängig bereitstellt.\\
+\par
+\endgroup
+Basis für diese Definition ist der überwiegende Konsens in der Literatur.\\
+Um die Isolation eines Services und gleichzeitig eine klar definierte Interaktion mit diesem zu gewährleisten, werden bestimmte Komponenten benötigt. Diese müssen in einem System, welches die serviceorientierte Architektur realisiert, vorhanden sein. Neben den Services zählen dazu folgende Punkte. \cite{ROTEMGALOZ.2012}
+
+\textbf{Schnittstelle/Kontrakt}
+
+Die Schnittstelle definiert die Menge aller möglichen Nachrichten zur Interaktion mit dem Service. Der Kontrakt eines Services ist also vergleichbar mit einem Interface in der Objektorientierung.
+
+
+\textbf{Endpunkt}
+
+Der Endpunkt stellt einen Unique Ressource Identifier (URI) dar, über welchen die Schnittstelle freigegeben wird. Über den Endpunkt kann der Service also gefunden und adressiert werden.
+
+\textbf{Nachrichten}
+
+Über Nachrichten kann mit einem Service interagiert werden. Ein Konsument kann eine Nachricht an einen Service-Endpunkt senden. Erhält der Service eine Nachricht, die einer Spezifikation in dessen Kontrakt entspricht, reagiert der Service auf diese.
+
+Darüber hinaus gibt es noch weitere optionale Bestandteile, wie beispielsweise Policies, die den Zugriff auf Services regeln oder ein Serviceregister, in welchem alle verfügbaren Service-Endpunkte dokumentiert werden.\\
+Die Verwendung einer SOA führt also zu konkreten Eigenschaften eines Systems. So ist beispielsweise die bereits genannte Verteilbarkeit ein zentraler Punkt \cite{ADNANGOHAR.2010}. Diese resultiert aus der losen Kopplung und positionsunabhängigen Adressierbarkeit. Neben der Flexibilität hinsichtlich der Positionierung wird außerdem eine stärkere Heterogenität der einzelnen Bestandteile eines Systems ermöglicht \cite{SANDERS.2008}. Durch die Verwendung von standardisierten und Programmiersprachen-unabhängigen Protokollen für den Nachrichtenaustausch werden Implementierungsdetails vollständig hinter dem Kontrakt verborgen. Diese Möglichkeit zur Heterogenität fördert außerdem die Wiederverwendbarkeit, da einzelne Services in den unterschiedlichsten Systemen völlig unabhängig des verwendeten Technologiestacks genutzt werden können \cite{ADNANGOHAR.2010}. Die gewonnene Flexibilität steht größerem Overhead und steigender Komplexität gegenüber.
+
+
+\subsection{Anwendungsfälle}
+\label{sec:useCasesSoa}
+Eine serviceorientierte Architektur kann in vielen unterschiedlichen Bereichen eingesetzt werden. Jedoch gibt es Anwendungsfälle wofür eine SOA besser oder schlechter geeignet ist. Gut geeignet ist eine SOA zum Beispiel für komplexe Applikationen, bei denen es viele Komponenten mit klar trennbaren Funktionalitäten gibt. Ebenfalls bietet SOA sich gut für skalierbare Anwendungen, welche auf verschiedenen Umgebungen oder in einer Cloud laufen an. Für kleine Applikationen mit nur wenigen Funktionalitäten bietet sich SOA weniger an, da dabei der Mehraufwand für die Entwicklung und Auslieferung zu groß ist. Statische Applikationen, welche keine Verbindung zu einem Backend benötigen, profitieren ebenfalls nicht von der Verwendung einer SOA.    
+
+Spezifischere Anwendungsfälle für SOA sind in der Finanzindustrie für die Integration verschiedener Banking-Systemen, in der Logistik für die Verbindung zwischen Transport- und Lagersysteme oder in der Telekommunikationsindustrie für die Integration zwischen Netzwerk- und Dienstsystemen. Neben den zuvor genannten Anwendungsfälle gibt es noch viele verschiedene Fälle in denen SOA in der Praxis eingesetzt werden kann. \cite{Heutschi.2007}

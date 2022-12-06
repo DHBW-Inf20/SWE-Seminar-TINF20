@@ -1,0 +1,50 @@
+%%% Um einen Artikel auf deutsch zu schreiben, genügt es die Klasse ohne
+%%% Parameter zu laden.
+\documentclass[biblatex]{lni}
+\addbibresource{bibliographie.bib}
+%%% To write an article in English, please use the option ``english'' in order
+%%% to get the correct hyphenation patterns and terms.
+%%% \documentclass[english]{class}
+%%
+\usepackage[caption=false]{subfig}
+\usepackage{acronym}
+\usepackage{float}
+\usepackage{tikz}
+\begin{document}
+%%% Mehrere Autoren werden durch \and voneinander getrennt.
+%%% Die Fußnote enthält die Adresse sowie eine E-Mail-Adresse.
+%%% Das optionale Argument (sofern angegeben) wird für die Kopfzeile verwendet.
+\title[Auswirkungen von SOA]{Auswirkungen einer serviceorientierten Architektur auf den Entwicklungs- und Auslieferungsprozess}
+%%%\subtitle{Untertitel / Subtitle} % if needed
+\author[Fabian Klimpel \and Lukas Epple \and Raphael Sack]
+{Fabian Klimpel\footnote{DHBW Stuttgart Campus Horb, Florianstraße 15, 72160 Horb, Deutschland \email{i20021@hb.dhbw-stuttgart.de}} \and
+Lukas Epple\footnote{DHBW Stuttgart Campus Horb, Florianstraße 15, 72160 Horb, Deutschland \email{i20009@hb.dhbw-stuttgart.de}} \and 
+Raphael Sack\footnote{DHBW Stuttgart Campus Horb, Florianstraße 15, 72160 Horb, Deutschland \email{i20029@hb.dhbw-stuttgart.de}}}
+\editor{Prof. Dr.-Phil. Antonius van Hoof} % Names of Editors
+\booktitle{Advanced Software-Engineering} % Name of book title
+\yearofpublication{2022}
+%%%\lnidoi{18.18420/provided-by-editor-02} % if known
+\maketitle
+
+\begin{abstract}
+    Das Konzept der serviceorientierten Architektur (SOA) existiert schon seit den 1990er Jahren und wird zunehmend in größeren Softwaresystemen eingesetzt. Während diese Architektur viele Vorteile mit sich bringt, bietet die Umsetzung dieser auch viele Herausforderungen. Ziel dieser Arbeit ist es die Vor- und Nachteile der serviceorientierte Architektur zu dokumentieren und Unterschiede zu anderen konventionellen Software-Architekturen, insbesondere hinsichtlich der Entwicklung und Auslieferung aufzuzeigen.  Dabei soll vor allem der Kontext der agilen Softwareentwicklung betrachtet werden. Für einen qualitativen Vergleich wurde eine umfassende Literaturrecherche durchgeführt. Die Recherchen zeigten, dass insbesondere die Qualität von umfangreichen und komplexen Softwaresysteme vom Einsatz der serviceorientierten Architektur und deren Auswirkungen auf den Entwicklungs- und Auslieferungsprozess profitieren kann.
+\end{abstract}
+\begin{keywords}
+SOA \and serviceorientierte Architektur \and Software-Engineering \and Software Architektur%Keyword1 \and K   eyword2
+\end{keywords}
+%%% Beginn des Artikeltexts
+\input{content/einleitung.tex}
+\input{content/geschichtlich.tex}
+\input{content/realisierung.tex}
+\input{content/security.tex}
+\input{content/entwicklungsprozess.tex}
+\input{content/auslieferungsprozess.tex}
+\newpage
+\pagenumbering{Roman}
+\setcounter{section}{0}
+\setcounter{secnumdepth}{0}
+
+\newpage
+%%% Angabe der .bib-Datei (ohne Endung) / State .bib file (for BibTeX usage)
+\printbibliography%\printbibliography if you use biblatex/Biber
+\end{document}
